@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   PER_PAGE = 2
 
   def index
-    @projects = Project.page(params[:page]).per(params[:per_page] || PER_PAGE)
+    @projects = Project.recent.page(params[:page]).per(params[:per_page] || PER_PAGE)
   end
 
   def new
@@ -44,6 +44,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title)
+    params.require(:project).permit(:title, :picture)
   end
 end
