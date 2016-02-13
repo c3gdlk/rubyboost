@@ -1,0 +1,18 @@
+<h1>Projects</h1>
+
+<%= link_to 'New project', new_project_path %>
+
+<% if @projects.present? %>
+<ul>
+  <% @projects.each do |project| %>
+    <li>
+      <%= project.title %>
+      <%= link_to 'Edit project', edit_project_path(project) %>
+      <%= link_to 'Delete project', project_path(project), method: :delete, data: {confirm: 'Sure?'} %>
+    </li>
+  <% end %>
+</ul>
+<%= paginate @projects %>
+<% else %>
+  <h2>No projects</h2>
+<% end %>
