@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 ruby '2.2.3'
 
 gem 'rails', '4.2.5'
+gem 'uglifier'
 
 gem 'simple_form'
 
