@@ -1,0 +1,23 @@
+%header.main-header
+  / Logo
+  %a.logo{:href => "index2.html"}
+    / mini logo for sidebar mini 50x50 pixels
+    %span.logo-mini Rubyboost
+    / logo for regular state and mobile devices
+    %span.logo-lg Rubyboost
+  / Header Navbar: style can be found in header.less
+  %nav.navbar.navbar-static-top{:role => "navigation"}
+    / Sidebar toggle button
+    %a.sidebar-toggle{"data-toggle" => "offcanvas", :href => "#", :role => "button"}
+      %span.sr-only Toggle navigation
+    .navbar-custom-menu
+      %ul.nav.navbar-nav
+        / Messages: style can be found in dropdown.less
+        / User Account: style can be found in dropdown.less
+        %li.user.user-menu
+          %a{:href => "#"}
+            = image_tag 'user2-160x160.jpg', class: 'user-image', alt: 'User Image'
+            %span.hidden-xs Alexander Pierce
+        %li.user.user-menu
+          %a.btn.btn-warning{:href => "#"}
+            %span.hidden-xs Sign Out
