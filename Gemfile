@@ -23,7 +23,6 @@ gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-
 group :production, :release, :staging do
   gem 'rails_12factor'
   gem 'heroku_rails_deflate'
