@@ -1,0 +1,27 @@
+# This is the configuration used to check the rubocop source code.
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'bin/*'
+    - 'spec/*'
+    - 'db/schema.rb'
+  TargetRubyVersion: 2.2
+  DisplayCopNames: true
+
+Style/Encoding:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+Style/ParallelAssignment:
+  Enabled: false  
+
+Metrics/LineLength:
+  Max: 130

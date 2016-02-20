@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-
   PER_PAGE = 2
 
   def index
