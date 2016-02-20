@@ -1,0 +1,35 @@
+/ Left side column. contains the logo and sidebar
+%aside.main-sidebar
+  / sidebar: style can be found in sidebar.less
+  %section.sidebar
+    / Sidebar user panel
+    .user-panel
+      .pull-left.image
+        = image_tag 'user2-160x160.jpg', class: 'img-circle'
+      .pull-left.info
+        %p Alexander Pierce
+        %a{:href => "#"}
+          %i.fa.fa-circle.text-success
+          Online
+    / search form
+    %form.sidebar-form{:action => "#", :method => "get"}
+      .input-group
+        %input.form-control{:name => "q", :placeholder => "Search...", :type => "text"}/
+        %span.input-group-btn
+          %button#search-btn.btn.btn-flat{:name => "search", :type => "submit"}
+            %i.fa.fa-search
+    / /.search form
+    / sidebar menu: : style can be found in sidebar.less
+    %ul.sidebar-menu
+      %li.header MAIN NAVIGATION
+      %li.active
+        = link_to root_path do
+          %i.fa.fa-dashboard
+          %span Dashboard
+          %i.fa.fa-angle-left.pull-right
+      %li
+        = link_to projects_path do
+          %i.fa.fa-files-o
+          %span Projects
+  / /.sidebar
+/ Content Wrapper. Contains page content
