@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  devise_for :users
+
   resources :projects, only: :index
-  resource :sessions, only: [:create, :destroy]
 
   namespace :users do
     resources :projects

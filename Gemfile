@@ -10,6 +10,8 @@ gem 'simple_form'
 gem 'pg', '0.17.1'
 gem 'puma', '1.5.0'
 
+gem 'devise'
+
 gem 'kaminari'
 
 gem 'carrierwave', '0.9.0'

@@ -20,5 +20,12 @@
               = image_tag 'user2-160x160.jpg', class: 'user-image', alt: 'User Image'
               %span.hidden-xs= current_user.email
           %li.user.user-menu
-            = link_to sessions_path, method: :delete, class: 'btn btn-warning' do
+            = link_to destroy_user_session_path, method: :delete, class: 'btn btn-warning' do
               %span.hidden-xs Sign Out
+        - else
+          %li.user.user-menu
+            = link_to new_user_registration_path, class: 'btn btn-success' do
+              %span.hidden-xs Sign Up
+          %li.user.user-menu
+            = link_to new_user_session_path, class: 'btn btn-success' do
+              %span.hidden-xs Sign In

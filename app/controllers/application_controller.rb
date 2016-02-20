@@ -3,13 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def user_signed_in?
-    current_user.present?
-  end
-  helper_method :user_signed_in?
+  layout :choose_layout
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id].present?
+  private
+
+  def choose_layout
+    devise_controller? ? 'application' : 'application'
   end
-  helper_method :current_user
 end
