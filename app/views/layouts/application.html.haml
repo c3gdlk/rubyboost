@@ -1,0 +1,94 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %title Workspace
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    / Tell the browser to be responsive to screen width
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}/
+  %body.hold-transition.skin-blue.sidebar-mini
+    .wrapper
+      %header.main-header
+        / Logo
+        %a.logo{:href => "index2.html"}
+          / mini logo for sidebar mini 50x50 pixels
+          %span.logo-mini Rubyboost
+          / logo for regular state and mobile devices
+          %span.logo-lg Rubyboost
+        / Header Navbar: style can be found in header.less
+        %nav.navbar.navbar-static-top{:role => "navigation"}
+          / Sidebar toggle button
+          %a.sidebar-toggle{"data-toggle" => "offcanvas", :href => "#", :role => "button"}
+            %span.sr-only Toggle navigation
+          .navbar-custom-menu
+            %ul.nav.navbar-nav
+              / Messages: style can be found in dropdown.less
+              / User Account: style can be found in dropdown.less
+              %li.user.user-menu
+                %a{:href => "#"}
+                  %img.user-image{:alt => "User Image", :src => "dist/img/user2-160x160.jpg"}/
+                  %span.hidden-xs Alexander Pierce
+              %li.user.user-menu
+                %a.btn.btn-warning{:href => "#"}
+                  %span.hidden-xs Sign Out
+      / Left side column. contains the logo and sidebar
+      %aside.main-sidebar
+        / sidebar: style can be found in sidebar.less
+        %section.sidebar
+          / Sidebar user panel
+          .user-panel
+            .pull-left.image
+              %img.img-circle{:alt => "User Image", :src => "dist/img/user2-160x160.jpg"}/
+            .pull-left.info
+              %p Alexander Pierce
+              %a{:href => "#"}
+                %i.fa.fa-circle.text-success
+                Online
+          / search form
+          %form.sidebar-form{:action => "#", :method => "get"}
+            .input-group
+              %input.form-control{:name => "q", :placeholder => "Search...", :type => "text"}/
+              %span.input-group-btn
+                %button#search-btn.btn.btn-flat{:name => "search", :type => "submit"}
+                  %i.fa.fa-search
+          / /.search form
+          / sidebar menu: : style can be found in sidebar.less
+          %ul.sidebar-menu
+            %li.header MAIN NAVIGATION
+            %li.active
+              %a{:href => "#"}
+                %i.fa.fa-dashboard
+                %span Dashboard
+                %i.fa.fa-angle-left.pull-right
+            %li
+              %a{:href => "projects.html"}
+                %i.fa.fa-files-o
+                %span Projects
+        / /.sidebar
+      / Content Wrapper. Contains page content
+      .content-wrapper
+        / Content Header (Page header)
+        %section.content-header
+          %h1
+            Dashboard
+            %small Control panel
+        / Main content
+        %section.content
+          / Small boxes (Stat box)
+          .row
+            .col-lg-12.col-xs-12
+              %h1 Welcome to Rubyboost
+            / ./col
+          / /.row
+        / /.content
+      / /.content-wrapper
+      %footer.main-footer
+        .pull-right.hidden-xs
+          %b Version
+          0.0.1
+        %strong
+          Copyright © Rubyboost 2016

@@ -4,6 +4,9 @@ ruby '2.2.3'
 gem 'rails', '4.2.5'
 gem 'uglifier'
 
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-ui-rails'
+
 gem 'simple_form'
 
 gem 'pg', '0.17.1'
