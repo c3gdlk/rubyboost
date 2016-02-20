@@ -9,6 +9,11 @@
   .row
     .col-lg-12.col-xs-12
       %h1 Welcome to Rubyboost
+      - unless user_signed_in?
+        = form_tag sessions_path do
+          %p= text_field_tag :email
+          %p= password_field_tag :password
+          %p= submit_tag 'Log in'
     / ./col
   / /.row
 / /.content

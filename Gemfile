@@ -4,9 +4,7 @@ ruby '2.2.3'
 gem 'rails', '4.2.5'
 gem 'uglifier'
 
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'jquery-ui-rails'
-
+gem 'bcrypt'
 gem 'simple_form'
 
 gem 'pg', '0.17.1'
@@ -22,9 +20,9 @@ gem 'mini_magick'
 gem 'sass-rails'
 gem 'haml-rails'
 gem 'coffee-rails'
-gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 group :production, :release, :staging do
   gem 'rails_12factor'

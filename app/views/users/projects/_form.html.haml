@@ -1,4 +1,4 @@
-= simple_form_for project do |f|
+= simple_form_for [:users, project] do |f|
   = f.input :title
   = f.input :picture,  as: :file
   = f.submit 'Save'

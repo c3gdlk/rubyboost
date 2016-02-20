@@ -1,0 +1,13 @@
+%h1 Projects
+= link_to 'New project', new_users_project_path
+- if @projects.present?
+  %ul
+    - @projects.each do |project|
+      %li= image_tag project.picture.thumb
+      %li
+        = project.title
+        = link_to 'Edit project', edit_users_project_path(project)
+        = link_to 'Delete project', users_project_path(project), method: :delete, data: {confirm: 'Sure?'}
+  = paginate @projects
+- else
+  %h2 No projects

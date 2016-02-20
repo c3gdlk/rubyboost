@@ -1,0 +1,1 @@
+PASSWORD_SALT = '$2a$10$43lS4EeftkHfte0Ba2UysO'

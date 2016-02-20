@@ -3,17 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def self.my_before_filter(filter, options={})
-    @filter, @options = filter, options
+  def user_signed_in?
+    current_user.present?
   end
+  helper_method :user_signed_in?
 
-  def self.process_before_filter(instance)
-    return unless @filter.present?
-
-    if @options[:if].present? && @options[:if].is_a?(Symbol)
-      return unless instance.send(@options[:if])
-    end
-
-    instance.send(@filter)
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id].present?
   end
+  helper_method :current_user
 end
