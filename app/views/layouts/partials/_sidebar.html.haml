@@ -2,15 +2,16 @@
 %aside.main-sidebar
   / sidebar: style can be found in sidebar.less
   %section.sidebar
-    / Sidebar user panel
-    .user-panel
-      .pull-left.image
-        = image_tag 'user2-160x160.jpg', class: 'img-circle'
-      .pull-left.info
-        %p Alexander Pierce
-        %a{:href => "#"}
-          %i.fa.fa-circle.text-success
-          Online
+    - if user_signed_in?
+      / Sidebar user panel
+      .user-panel
+        .pull-left.image
+          = image_tag 'user2-160x160.jpg', class: 'img-circle'
+        .pull-left.info
+          %p Alexander Pierce
+          %a{:href => "#"}
+            %i.fa.fa-circle.text-success
+            Online
     / search form
     %form.sidebar-form{:action => "#", :method => "get"}
       .input-group

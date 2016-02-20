@@ -12,12 +12,13 @@
       %span.sr-only Toggle navigation
     .navbar-custom-menu
       %ul.nav.navbar-nav
-        / Messages: style can be found in dropdown.less
-        / User Account: style can be found in dropdown.less
-        %li.user.user-menu
-          %a{:href => "#"}
-            = image_tag 'user2-160x160.jpg', class: 'user-image', alt: 'User Image'
-            %span.hidden-xs Alexander Pierce
-        %li.user.user-menu
-          %a.btn.btn-warning{:href => "#"}
-            %span.hidden-xs Sign Out
+        - if user_signed_in?
+          / Messages: style can be found in dropdown.less
+          / User Account: style can be found in dropdown.less
+          %li.user.user-menu
+            = link_to users_projects_path do
+              = image_tag 'user2-160x160.jpg', class: 'user-image', alt: 'User Image'
+              %span.hidden-xs= current_user.email
+          %li.user.user-menu
+            = link_to sessions_path, method: :delete, class: 'btn btn-warning' do
+              %span.hidden-xs Sign Out
