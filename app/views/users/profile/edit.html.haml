@@ -1,0 +1,10 @@
+%h1 Update profile data
+
+= simple_form_for current_user, url: users_profile_path do |f|
+  = f.input :email
+
+  = f.simple_fields_for :profile do |pf|
+    = pf.input :first_name
+    = pf.input :last_name
+
+  = f.submit 'Save'

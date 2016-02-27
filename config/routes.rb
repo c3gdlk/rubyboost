@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :projects, only: :index
 
   namespace :users do
+    resource  :profile, only: [:edit, :update], controller: :profile
     resources :projects
   end
 
