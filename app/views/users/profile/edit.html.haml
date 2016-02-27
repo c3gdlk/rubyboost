@@ -2,6 +2,8 @@
 
 = simple_form_for current_user, url: users_profile_path do |f|
   = f.input :email
+  = f.input :password
+  = f.input :password_confirmation
 
   = f.simple_fields_for :profile do |pf|
     = pf.input :first_name
