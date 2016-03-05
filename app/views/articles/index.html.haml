@@ -1,0 +1,13 @@
+%h1 Project #{project.title} participants
+
+%table.table.table-bordered
+  %tbody
+    %tr
+      %th Title
+    - @articles.each do |article|
+      %tr
+        %td
+          - if can? :read, article
+            = link_to article.title, project_article_path(project, article)
+          - else
+            = article.title

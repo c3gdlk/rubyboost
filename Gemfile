@@ -15,6 +15,10 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'devise'
 
+gem 'responders'
+
+gem 'cancancan'
+
 gem 'kaminari'
 
 gem 'carrierwave', '0.9.0'
@@ -50,6 +54,7 @@ group :development do
   gem 'letter_opener'
   gem 'annotate'
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'spring-commands-rspec'
   gem 'bullet'
 end

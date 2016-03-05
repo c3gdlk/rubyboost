@@ -1,7 +1,16 @@
 class ProjectsController < ApplicationController
-  PER_PAGE = 2
+  include SimpleResource
 
-  def index
-    @projects = Project.recent.page(params[:page]).per(params[:per_page] || PER_PAGE)
+  resource_context :current_user
+  paginate_collection 1
+
+  private
+
+  def after_save_redirect_path
+    projects_path
+  end
+
+  def permitted_params
+    params.require(:project).permit(:title, :picture)
   end
 end

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook, :twitter]
 
   has_one  :profile
+  has_many :projects
   has_many :authored_projects, class_name: 'Project', foreign_key: :user_id
   has_many :social_profiles
   has_many :project_users
