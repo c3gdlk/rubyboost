@@ -1,0 +1,5 @@
+%tr{id: "project-participant-#{user.id}"}
+  %td= "#{user.first_name} #{user.last_name}"
+  %td
+    - if user_signed_in? && user.id == current_user.id
+      = link_to 'Unsubscribe', project_subscriptions_path(project), method: :delete, remote: true
