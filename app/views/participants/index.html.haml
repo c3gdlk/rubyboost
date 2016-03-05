@@ -1,0 +1,13 @@
+%h1 Project #{project.title} participants
+
+- if user_signed_in?
+  #subscription-button{ style: ('display: none;' if current_user.participate_in?(project)) }
+    = link_to 'Subscribe', project_subscriptions_path(project), method: :post, remote: true
+
+%table.table.table-bordered
+  %tbody#participants-list
+    %tr
+      %th User
+      %th Action
+    - @users.each do |user|
+      = render 'participant', project: project, user: user

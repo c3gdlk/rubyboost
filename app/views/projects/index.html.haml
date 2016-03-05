@@ -4,6 +4,7 @@
     - @projects.each do |project|
       %li= image_tag project.picture.thumb
       %li= project.title
+      %li= link_to 'Participants', project_participants_path(project)
   = paginate @projects
 - else
   %h2 No projects

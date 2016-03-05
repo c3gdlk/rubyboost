@@ -32,5 +32,14 @@
         = link_to projects_path do
           %i.fa.fa-files-o
           %span Projects
+      - if user_signed_in?
+        %li
+          =link_to edit_users_profile_path do
+            %i.fa.fa-user
+            %span Edit profile
+        %li
+          =link_to users_projects_path do
+            %i.fa.fa-files-o
+            %span My Projects
   / /.sidebar
 / Content Wrapper. Contains page content

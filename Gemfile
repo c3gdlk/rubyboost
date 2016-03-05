@@ -10,6 +10,9 @@ gem 'simple_form'
 gem 'pg', '0.17.1'
 gem 'puma', '1.5.0'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 gem 'devise'
 
 gem 'kaminari'
@@ -48,6 +51,7 @@ group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'spring-commands-rspec'
+  gem 'bullet'
 end
 
 group :test do

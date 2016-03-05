@@ -5,11 +5,15 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
-  resources :projects, only: :index
+  resources :projects, only: :index do
+    resources :participants, only: :index
+    resource  :subscriptions, only: [:create, :destroy], controller: :project_subscriptions
+  end
 
   namespace :users do
+    resource  :profile, only: [:edit, :update], controller: :profile
     resources :projects
   end
 

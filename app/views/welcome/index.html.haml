@@ -3,6 +3,8 @@
   %h1
     Dashboard
     %small Control panel
+    = link_to 'Login facebook', user_omniauth_authorize_path(provider: 'facebook')
+    = link_to 'Login twitter', user_omniauth_authorize_path(provider: 'twitter')
 / Main content
 %section.content
   / Small boxes (Stat box)

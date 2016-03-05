@@ -4,15 +4,15 @@ class Users::ProjectsController < Users::BaseController
   before_action :find_project, only: [:edit, :update, :destroy]
 
   def index
-    @projects = current_user.projects.recent.page(params[:page]).per(params[:per_page] || PER_PAGE)
+    @projects = current_user.authored_projects.recent.page(params[:page]).per(params[:per_page] || PER_PAGE)
   end
 
   def new
-    @project = current_user.projects.build
+    @project = current_user.authored_projects.build
   end
 
   def create
-    @project = current_user.projects.build(project_params)
+    @project = current_user.authored_projects.build(project_params)
 
     if @project.save
       redirect_to users_projects_path
@@ -41,7 +41,7 @@ class Users::ProjectsController < Users::BaseController
   private
 
   def find_project
-    @project = current_user.projects.find(params[:id])
+    @project = current_user.authored_projects.find(params[:id])
   end
 
   def project_params
