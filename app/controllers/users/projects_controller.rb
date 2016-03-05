@@ -12,24 +12,16 @@ class Users::ProjectsController < Users::BaseController
   end
 
   def create
-    @project = current_user.authored_projects.build(project_params)
-
-    if @project.save
-      redirect_to users_projects_path
-    else
-      render :new
-    end
+    @project = current_user.authored_projects.create(project_params)
+    respond_with @project, location: users_projects_path
   end
 
   def edit
   end
 
   def update
-    if @project.update(project_params)
-      redirect_to users_projects_path
-    else
-      render :edit
-    end
+    @project.update(project_params)
+    respond_with @project, location: users_projects_path
   end
 
   def destroy

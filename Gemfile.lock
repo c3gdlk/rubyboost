@@ -49,6 +49,8 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -57,6 +59,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.9.0)
     byebug (8.2.2)
+    cancancan (1.13.1)
     capybara (2.6.2)
       addressable
       mime-types (>= 1.16)
@@ -84,6 +87,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     database_cleaner (1.5.1)
+    debug_inspector (0.0.2)
     devise (3.5.6)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -300,9 +304,11 @@ DEPENDENCIES
   annotate
   bcrypt
   better_errors
+  binding_of_caller
   bootstrap-sass (~> 3.3.6)
   bullet
   byebug
+  cancancan
   capybara
   capybara-screenshot
   capybara-webkit
@@ -331,6 +337,7 @@ DEPENDENCIES
   rails (= 4.2.5)
   rails_12factor
   rails_dt
+  responders
   rspec-rails
   sass
   sass-rails
