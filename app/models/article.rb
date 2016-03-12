@@ -20,6 +20,8 @@ class Article < ActiveRecord::Base
 
   validates :title, :content, presence: true
 
+  after_create :send_notifications
+
   aasm column: :state do
     state :pending, initial: true
     state :moderation
@@ -36,6 +38,14 @@ class Article < ActiveRecord::Base
 
     event :reject do
       transitions from: :moderation, to: :rejected
+    end
+  end
+
+  private
+
+  def send_notifications
+    project.participants.each do |user|
+      NotificationsMailer.new_article(self, user).deliver
     end
   end
 end

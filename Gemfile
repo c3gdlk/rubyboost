@@ -53,10 +53,10 @@ group :test, :development do
   gem 'quiet_assets'
   gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'factory_girl_rails'
+  gem 'letter_opener'
 end
 
 group :development do
-  gem 'letter_opener'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'

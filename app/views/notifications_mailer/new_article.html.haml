@@ -1,0 +1,4 @@
+%h1 Hello, #{@recipient.first_name}
+
+%p New Article for review: #{@article.title}
+%p Please visit #{link_to @article.title, project_article_url(@article.project, @article) }

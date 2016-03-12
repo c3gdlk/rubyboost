@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   namespace :users do
     resource  :profile, only: [:edit, :update], controller: :profile
     resources :projects do
-      resources :articles
+      resources :articles, only: [:new, :create]
     end
     resources :activities, only: :index
   end
