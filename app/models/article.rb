@@ -15,6 +15,7 @@ class Article < ActiveRecord::Base
   private_constant :ModeratorNotification
 
   belongs_to :project
+  has_many   :comments, as: :commentable
 
   validates :title, :content, presence: true
 

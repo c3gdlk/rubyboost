@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     resources :articles, only: [:index, :show]
   end
 
+  resources :articles, only: [] do
+    resources :comments, only: [:create, :destroy]
+  end
+
   namespace :users do
     resource  :profile, only: [:edit, :update], controller: :profile
     resources :projects do

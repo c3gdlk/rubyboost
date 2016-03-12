@@ -3,3 +3,19 @@
 %h1= @article.title
 
 %p= @article.content
+
+%h2 Comments
+
+- if @article.comments.size > 0
+  %ul
+    - @article.comments.each do |comment|
+      %li= comment.body
+      %li= link_to 'Delete', article_comment_path(@article, comment), method: :delete
+- else
+%p No Comments
+
+%h3 Add new comment
+
+= simple_form_for [@article, Comment.new] do |f|
+  = f.input :body
+  = f.submit
