@@ -7,6 +7,8 @@ gem 'uglifier'
 gem 'bcrypt'
 gem 'simple_form'
 
+gem 'aasm'
+
 gem 'pg', '0.17.1'
 gem 'puma', '1.5.0'
 
