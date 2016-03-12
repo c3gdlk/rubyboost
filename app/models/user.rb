@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :social_profiles
   has_many :project_users
   has_many :participated_projects, through: :project_users, source: :project
+  has_many :activities_for_me,  class_name: 'Activity', foreign_key: :recipient_id
+  has_many :activities_from_me, class_name: 'Activity', foreign_key: :owner_id
 
   before_save  :ensure_authentication_token
   after_create :create_user_profile

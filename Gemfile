@@ -6,6 +6,7 @@ gem 'uglifier'
 
 gem 'bcrypt'
 gem 'simple_form'
+gem 'draper'
 
 gem 'aasm'
 

@@ -16,6 +16,7 @@ class Article < ActiveRecord::Base
 
   belongs_to :project
   has_many   :comments, as: :commentable
+  has_many   :activities, as: :trackable
 
   validates :title, :content, presence: true
 

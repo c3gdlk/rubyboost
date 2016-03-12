@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     resources :projects do
       resources :articles
     end
+    resources :activities, only: :index
   end
 
   # Example of regular route:

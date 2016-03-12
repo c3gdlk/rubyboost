@@ -1,0 +1,10 @@
+%h1 Activities
+
+- if @activities.size > 0
+  %ul
+    - @activities.each do |activity|
+      %li= activity.message
+      %li= render activity.partial_name, trackable: activity.trackable
+
+- else
+  %h2 No Activities
