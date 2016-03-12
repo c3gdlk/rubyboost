@@ -15,6 +15,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'devise'
 
+gem 'active_model_serializers'
+
 gem 'responders'
 
 gem 'cancancan'

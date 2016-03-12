@@ -40,3 +40,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.action_controller.asset_host = 'localhost:3000'
 end
+
+Rails.application.routes.default_url_options[:host] = 'localhost:3000'

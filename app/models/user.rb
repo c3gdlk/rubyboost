@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :project_users
   has_many :participated_projects, through: :project_users, source: :project
 
+  before_save  :ensure_authentication_token
   after_create :create_user_profile
 
   accepts_nested_attributes_for :profile
@@ -28,5 +29,18 @@ class User < ActiveRecord::Base
   def create_user_profile
     build_profile
     profile.save(validates: false)
+  end
+
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
+
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.exists?(authentication_token: token)
+    end
   end
 end
