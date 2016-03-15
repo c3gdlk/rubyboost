@@ -1,5 +1,5 @@
 class Users::ProjectsController < Users::BaseController
-  PER_PAGE = 2
+  PER_PAGE = 10
 
   before_action :find_project, only: [:edit, :update, :destroy]
 

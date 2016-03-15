@@ -6,6 +6,7 @@
       %li= image_tag project.picture.thumb
       %li
         = project.title
+        = link_to 'New Article', new_users_project_article_path(project)
         = link_to 'Edit project', edit_users_project_path(project)
         = link_to 'Delete project', users_project_path(project), method: :delete, data: {confirm: 'Sure?'}
   = paginate @projects

@@ -1,14 +1,17 @@
 class ProjectsController < ApplicationController
   include SimpleResource
 
-  resource_context :current_user
-  paginate_collection 1
+  paginate_collection 10
+
+  def index
+    index! do |format|
+      format.html { render :index }
+      format.json { render json: collection }
+    end
+  end
 
   private
 
-  def after_save_redirect_path
-    projects_path
-  end
 
   def permitted_params
     params.require(:project).permit(:title, :picture)

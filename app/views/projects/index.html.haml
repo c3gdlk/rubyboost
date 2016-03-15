@@ -6,9 +6,6 @@
       %li= resource.title
       %li= link_to 'Participants', project_participants_path(resource)
       %li= link_to 'Articles',     project_articles_path(resource)
-      %li
-        = link_to 'Edit project', edit_project_path(resource)
-        = link_to 'Delete project', project_path(resource), method: :delete, data: {confirm: 'Sure?'}
   = paginate collection
 - else
   %h2 No projects

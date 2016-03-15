@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305135435) do
+ActiveRecord::Schema.define(version: 20160312153443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "recipient_id"
+    t.integer  "owner_id"
+    t.integer  "trackable_id"
+    t.string   "trackable_type"
+    t.string   "kind"
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["kind"], name: "index_activities_on_kind", using: :btree
+  add_index "activities", ["owner_id"], name: "index_activities_on_owner_id", using: :btree
+  add_index "activities", ["recipient_id"], name: "index_activities_on_recipient_id", using: :btree
+  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -23,9 +39,20 @@ ActiveRecord::Schema.define(version: 20160305135435) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "shared_key"
+    t.string   "state"
   end
 
   add_index "articles", ["project_id"], name: "index_articles_on_project_id", using: :btree
+  add_index "articles", ["state"], name: "index_articles_on_state", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
@@ -81,8 +108,10 @@ ActiveRecord::Schema.define(version: 20160305135435) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "authentication_token"
   end
 
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
