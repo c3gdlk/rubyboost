@@ -4,7 +4,7 @@ class Api::V1::AuthTokensController < Api::V1::BaseController
     auth_token = authenticate_by_email
 
     if auth_token.present?
-      render json: {success: true, auth_token: auth_token}, status: 200
+      render json: {success: true, auth_token: auth_token}, status: 201
     else
       raise NotAuthorized
     end

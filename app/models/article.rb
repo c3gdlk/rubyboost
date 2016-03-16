@@ -20,7 +20,7 @@ class Article < ActiveRecord::Base
 
   validates :title, :content, presence: true
 
-  after_create :send_notifications
+  after_commit :send_notifications
 
   aasm column: :state do
     state :pending, initial: true
@@ -44,8 +44,6 @@ class Article < ActiveRecord::Base
   private
 
   def send_notifications
-    project.participants.each do |user|
-      NotificationsMailer.new_article(self, user).deliver
-    end
+    ScheduleNewArticleNotificationWorker.perform_async(id)
   end
 end
