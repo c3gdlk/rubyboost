@@ -1,0 +1,12 @@
+%h1 Edit Article
+= render 'form', project: project, article: article
+
+- if article.pending?
+  = link_to 'Send for moderation', users_project_article_send_for_moderation_path(project, article), method: :put, class: 'btn btn-primary'
+
+- if article.moderation?
+  = link_to 'Approve', users_project_article_approve_path(project, article), method: :put, class: 'btn btn-success'
+
+  = simple_form_for @comment_for_reject, url: users_project_article_reject_path(project, article), method: :put do |f|
+    = f.input :body
+    = f.submit 'Reject', class: 'btn btn-danger'

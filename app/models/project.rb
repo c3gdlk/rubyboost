@@ -8,5 +8,14 @@ class Project < ActiveRecord::Base
 
   validates :title, presence: true, length: { maximum: 20 }
 
+  after_save :expire_cache
+  after_destroy :expire_cache
+
   mount_uploader :picture, ProjectPictureUploader
+
+  private
+
+  def expire_cache
+    ProjectSweeper.expire_cache self
+  end
 end

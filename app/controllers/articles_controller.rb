@@ -1,9 +1,14 @@
 class ArticlesController < ApplicationController
-  before_filter :load_article, only: :show
+  before_action :load_article, only: :show
   authorize_resource only: :show
 
+  has_scope :pending, type: :boolean
+  has_scope :approved, type: :boolean
+  has_scope :rejected, type: :boolean
+  has_scope :order_by_date
+
   def index
-    @articles = project.articles
+    @articles = apply_scopes(project.articles)
   end
 
   def show

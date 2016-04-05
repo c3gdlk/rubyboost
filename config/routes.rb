@@ -35,7 +35,11 @@ Rails.application.routes.draw do
   namespace :users do
     resource  :profile, only: [:edit, :update], controller: :profile
     resources :projects do
-      resources :articles, only: [:new, :create]
+      resources :articles, only: [:new, :create, :edit, :update] do
+        put :send_for_moderation
+        put :approve
+        put :reject
+      end
     end
     resources :activities, only: :index
   end

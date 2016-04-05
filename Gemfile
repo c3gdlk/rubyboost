@@ -7,6 +7,10 @@ gem 'uglifier'
 gem 'bcrypt'
 gem 'simple_form'
 gem 'draper'
+gem 'has_scope'
+
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
 
 gem 'aasm'
 
