@@ -40,7 +40,8 @@ module Omniauthable
     end
 
     def password_required?
-      !social_login
+      return false if social_login
+      super
     end
 
     def email_required?

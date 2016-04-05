@@ -14,9 +14,11 @@ class Article < ActiveRecord::Base
   end
   private_constant :ModeratorNotification
 
-  belongs_to :project
+  belongs_to :project, touch: true
   has_many   :comments, as: :commentable
   has_many   :activities, as: :trackable
+
+  scope :order_by_date, -> (direction) { order(created_at: direction.to_sym) }
 
   validates :title, :content, presence: true
 

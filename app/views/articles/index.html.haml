@@ -4,10 +4,14 @@
   %tbody
     %tr
       %th Title
-    - @articles.each do |article|
-      %tr
-        %td
-          - if can? :read, article
-            = link_to article.title, project_article_path(project, article)
-          - else
-            = article.title
+
+    - cache [current_user, project] do
+      - @articles.each do |article|
+        - cache article do
+          %tr
+            %td
+              - if can? :read, article
+                = link_to article.title, project_article_path(project, article)
+              - else
+                = article.title
+              = link_to 'Edit', edit_users_project_article_path(project, article)

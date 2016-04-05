@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   before_save  :ensure_authentication_token
   after_create :create_user_profile
 
-  accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :profile, update_only: true
 
   delegate :first_name, :last_name, to: :profile, allow_nil: true
 

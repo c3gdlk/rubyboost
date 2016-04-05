@@ -21,6 +21,7 @@ class Users::ProjectsController < Users::BaseController
 
   def update
     @project.update(project_params)
+
     respond_with @project, location: users_projects_path
   end
 
